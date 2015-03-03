@@ -97,6 +97,15 @@
     <module name="MultipleVariableDeclarations"/>
     <module name="DefaultComesLast"/>
     <module name="EmptyStatement"/>
+    <module name="CovariantEquals" />
+    <module name="EqualsHashCode" />
+    <module name="IllegalInstantiation" />
+    <module name="StringLiteralEquality" />
+    <module name="MissingOverride" />
+    <module name="PackageAnnotation" />
+    <module name="SuppressWarnings" />
+    <module name="EmptyForInitializerPad" />
+    <module name="TypecastParenPad" />
   </module>
   
   <!-- For each spacing -->
@@ -116,4 +125,5 @@
     <property name="checkFormat" value="$1"/>
     <property name="influenceFormat" value="$2"/>
   </module>
+
 </module>
