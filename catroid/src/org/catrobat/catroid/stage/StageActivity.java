@@ -69,7 +69,7 @@ public class StageActivity extends AndroidApplication {
 		calculateScreenSizes();
 
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		config.useGLSurfaceView20API18 = true; //TODO check if we need this config
+		config.useGLSurfaceView20API18 = false; //TODO check if we need this config
 
 		initialize(stageListener, config);
 		if (droneConnection != null) {
