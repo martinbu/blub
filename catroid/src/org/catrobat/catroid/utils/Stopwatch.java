@@ -20,19 +20,17 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.catrobat.catroid.bluetooth;
+package org.catrobat.catroid.utils;
 
-import android.os.Handler;
+public class Stopwatch {
 
-// TODO Not needed for LegoNXT anymore, functionality now in LegoNXTBtCommunicator! Maybe refactor similary for arduino or move to arduino package...
-public interface BtCommunicator {
+    private long start;
 
-	// this is the only OUI registered by LEGO, see http://standards.ieee.org/regauth/oui/index.shtml
-	String OUI_LEGO = "00:16:53";
+    public void start() {
+        start = System.currentTimeMillis();
+    }
 
-	void setMACAddress(String mMACaddress);
-
-	boolean isConnected();
-
-	Handler getHandler();
+    public long getElapsedMilliseconds() {
+        return (System.currentTimeMillis() - start);
+    }
 }

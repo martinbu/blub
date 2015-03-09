@@ -557,7 +557,7 @@ public final class UiTestUtils {
 		brickCategoryMap.put(R.string.brick_change_variable, R.string.category_control);
 		brickCategoryMap.put(R.string.brick_set_variable, R.string.category_control);
 
-		brickCategoryMap.put(R.string.brick_motor_action, R.string.category_lego_nxt);
+		brickCategoryMap.put(R.string.nxt_brick_motor_move, R.string.category_lego_nxt);
 	}
 
 	public static int getBrickCategory(Solo solo, int brickStringId) {

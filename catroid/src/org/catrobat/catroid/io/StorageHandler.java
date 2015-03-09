@@ -77,7 +77,7 @@ import org.catrobat.catroid.content.bricks.IfLogicEndBrick;
 import org.catrobat.catroid.content.bricks.IfOnEdgeBounceBrick;
 import org.catrobat.catroid.content.bricks.LedOffBrick;
 import org.catrobat.catroid.content.bricks.LedOnBrick;
-import org.catrobat.catroid.content.bricks.LegoNxtMotorActionBrick;
+import org.catrobat.catroid.content.bricks.LegoNxtMotorMoveBrick;
 import org.catrobat.catroid.content.bricks.LegoNxtMotorStopBrick;
 import org.catrobat.catroid.content.bricks.LegoNxtMotorTurnAngleBrick;
 import org.catrobat.catroid.content.bricks.LegoNxtPlayToneBrick;
@@ -243,7 +243,7 @@ public final class StorageHandler {
 		xstream.alias("brick", IfOnEdgeBounceBrick.class);
 		xstream.alias("brick", LedOffBrick.class);
 		xstream.alias("brick", LedOnBrick.class);
-		xstream.alias("brick", LegoNxtMotorActionBrick.class);
+		xstream.alias("brick", LegoNxtMotorMoveBrick.class);
 		xstream.alias("brick", LegoNxtMotorStopBrick.class);
 		xstream.alias("brick", LegoNxtMotorTurnAngleBrick.class);
 		xstream.alias("brick", LegoNxtPlayToneBrick.class);

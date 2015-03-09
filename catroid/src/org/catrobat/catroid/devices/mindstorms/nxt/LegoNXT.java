@@ -20,13 +20,27 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.catrobat.catroid.bluetooth;
+package org.catrobat.catroid.devices.mindstorms.nxt;
 
-public interface BTConnectable {
+import org.catrobat.catroid.bluetooth.base.BluetoothDevice;
+import org.catrobat.catroid.devices.mindstorms.Mindstorms;
+import org.catrobat.catroid.devices.mindstorms.MindstormsSensor;
+import org.catrobat.catroid.formulaeditor.Sensors;
 
-	/**
-	 * @return true, when currently pairing
-	 */
-	boolean isPairing();
+public interface LegoNXT extends Mindstorms, BluetoothDevice {
 
+	void playTone(int frequency, int duration);
+
+	NXTMotor getMotorA();
+	NXTMotor getMotorB();
+	NXTMotor getMotorC();
+
+	void stopAllMovements();
+
+	int getSensorValue(Sensors sensor);
+
+	MindstormsSensor getSensor1();
+	MindstormsSensor getSensor2();
+	MindstormsSensor getSensor3();
+	MindstormsSensor getSensor4();
 }
