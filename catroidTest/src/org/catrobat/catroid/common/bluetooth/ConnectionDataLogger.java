@@ -85,22 +85,25 @@ public final class ConnectionDataLogger {
 
 
 	private static byte[] getNextMessage(Queue<byte[]> messages, int messageOffset, int messageByteOffset) {
-		for (int i = 0; i < messageOffset; i++) {
-			messages.poll();
+		synchronized (messages) {
+			for (int i = 0; i < messageOffset; i++) {
+				messages.poll();
+			}
+			return BluetoothTestUtils.getSubArray(messages.poll(), messageByteOffset);
 		}
-		return BluetoothTestUtils.getSubArray(messages.poll(), messageByteOffset);
 	}
 
 	private static ArrayList<byte[]> getMessages(Queue<byte[]> messages, int messageByteOffset, boolean clearMessageQueue) {
 
 		ArrayList<byte[]> m = new ArrayList<byte[]>();
+		synchronized (messages) {
+			for (byte[] message : messages) {
+				m.add(BluetoothTestUtils.getSubArray(message, messageByteOffset));
+			}
 
-		for (byte[] message : messages) {
-			m.add(BluetoothTestUtils.getSubArray(message, messageByteOffset));
-		}
-
-		if (clearMessageQueue) {
-			messages.clear();
+			if (clearMessageQueue) {
+				messages.clear();
+			}
 		}
 
 		return m;
@@ -114,12 +117,16 @@ public final class ConnectionDataLogger {
 
 		@Override
 		public void logSentData(byte[] b) {
-			sentMessages.add(b);
+			synchronized (sentMessages) {
+				sentMessages.add(b);
+			}
 		}
 
 		@Override
 		public void logReceivedData(byte[] b) {
-			receivedMessages.add(b);
+			synchronized (receivedMessages) {
+				receivedMessages.add(b);
+			}
 		}
 
 		@Override
